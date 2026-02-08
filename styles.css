@@ -1,0 +1,59 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+header,
+main,
+footer {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+nav ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 8px 0 0 0;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+nav a {
+  text-decoration: none;
+  border: 1px solid currentColor;
+  padding: 6px 10px;
+  border-radius: 6px;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+hr {
+  margin: 16px 0;
+}
+
+h1 {
+  margin: 0 0 6px 0;
+}
+
+h2 {
+  margin-top: 24px;
+}
+
+p {
+  margin: 8px 0;
+}
+
+ol,
+ul {
+  padding-left: 20px;
+}
