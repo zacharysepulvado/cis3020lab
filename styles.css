@@ -57,3 +57,34 @@ ol,
 ul {
   padding-left: 20px;
 }
+/* Showcase image grid */
+.showcase-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.showcase-grid figure {
+  margin: 0;
+}
+
+.showcase-grid img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+}
+
+.showcase-grid figcaption {
+  margin-top: 6px;
+  font-size: 0.9rem;
+  text-align: center;
+}
+/* Layout for smaller screens (phones)*/
+@media (max-width: 900px) {
+  .showcase-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
