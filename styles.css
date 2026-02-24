@@ -88,3 +88,32 @@ ul {
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.portfolio-grid img {
+  width: 100%;
+  height: 220px;      
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+}
+
+
+@media (max-width: 900px) {
+  .portfolio-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+  }
+}
