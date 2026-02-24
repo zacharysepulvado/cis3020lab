@@ -105,6 +105,10 @@ ul {
   display: block;
 }
 
+.portfolio-grid img:last-child:nth-child(3n + 1) {
+  grid-column: 2;
+}
+
 
 @media (max-width: 900px) {
   .portfolio-grid {
