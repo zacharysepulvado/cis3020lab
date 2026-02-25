@@ -71,7 +71,7 @@ ul {
 
 .showcase-grid img {
   width: 100%;
-  height: 220px;
+  height: auto;
   object-fit: cover;
   border-radius: 10px;
   display: block;
