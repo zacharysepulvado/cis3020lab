@@ -92,7 +92,7 @@ ul {
 
 .portfolio-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 16px;
   margin-top: 16px;
 }
@@ -104,11 +104,6 @@ ul {
   border-radius: 10px;
   display: block;
 }
-
-.portfolio-grid img:last-child:nth-child(3n + 1) {
-  grid-column: 2;
-}
-
 
 @media (max-width: 900px) {
   .portfolio-grid {
