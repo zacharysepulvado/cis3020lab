@@ -71,6 +71,30 @@ const nextButton = document.querySelector(".carousel-next");
 let currentIndex = 0;
 let shuffledImages = [...portfolioImages];
 
+function getCaption(imagePath) {
+  if (imagePath.includes("creative-portrait")) {
+    return "Creative Portraits";
+  }
+
+  if (imagePath.includes("couple-engagement")) {
+    return "Couples / Engagement";
+  }
+
+  if (imagePath.includes("graduation")) {
+    return "Graduation Sessions";
+  }
+
+  if (imagePath.includes("headshot")) {
+    return "Headshots";
+  }
+
+  if (imagePath.includes("event")) {
+    return "Event Photography";
+  }
+
+  return "Featured Work";
+}
+
 function shuffleImages() {
   for (let i = shuffledImages.length - 1; i > 0; i--) {
     const randomIndex = Math.floor(Math.random() * (i + 1));
@@ -78,36 +102,55 @@ function shuffleImages() {
   }
 }
 
-function createDots() {
+function updateCarousel() {
+  const currentImage = shuffledImages[currentIndex];
+
+  carouselImage.src = currentImage;
+  carouselImage.alt = getCaption(currentImage);
+  carouselCaption.textContent = getCaption(currentImage);
+
+  updateDots();
+}
+
+function updateDots() {
   dotsContainer.innerHTML = "";
 
-  shuffledImages.forEach((image, index) => {
+  const totalDots = 7;
+  const centerDot = 3;
+
+  let startIndex = currentIndex - centerDot;
+
+  if (startIndex < 0) {
+    startIndex = 0;
+  }
+
+  if (startIndex > shuffledImages.length - totalDots) {
+    startIndex = shuffledImages.length - totalDots;
+  }
+
+  if (startIndex < 0) {
+    startIndex = 0;
+  }
+
+  const endIndex = Math.min(startIndex + totalDots, shuffledImages.length);
+
+  for (let i = startIndex; i < endIndex; i++) {
     const dot = document.createElement("button");
     dot.classList.add("carousel-dot");
     dot.type = "button";
-    dot.setAttribute("aria-label", `Go to photo ${index + 1}`);
+    dot.setAttribute("aria-label", `Go to photo ${i + 1}`);
+
+    if (i === currentIndex) {
+      dot.classList.add("active");
+    }
 
     dot.addEventListener("click", () => {
-      currentIndex = index;
+      currentIndex = i;
       updateCarousel();
     });
 
     dotsContainer.appendChild(dot);
-  });
-}
-
-function updateCarousel() {
-  const currentImage = shuffledImages[currentIndex];
-
-  carouselImage.src = currentImage.src;
-  carouselImage.alt = currentImage.alt;
-  carouselCaption.textContent = currentImage.caption;
-
-  const dots = document.querySelectorAll(".carousel-dot");
-
-  dots.forEach((dot, index) => {
-    dot.classList.toggle("active", index === currentIndex);
-  });
+  }
 }
 
 function showNextImage() {
@@ -122,7 +165,6 @@ function showPreviousImage() {
 
 if (carouselImage && carouselCaption && dotsContainer && prevButton && nextButton) {
   shuffleImages();
-  createDots();
   updateCarousel();
 
   nextButton.addEventListener("click", showNextImage);
