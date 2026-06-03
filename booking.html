@@ -196,21 +196,63 @@
   </div>
 </section>
 
-    <section>
-      <h2>Booking Inquiry</h2>
-      <p>
-        The full booking form will be added later. For now, clients can contact me directly to
-        request availability and session details.
-      </p>
-      <p>
-        Email: <a href="mailto:zacharysepulvado@example.com">zacharysepulvado@example.com</a>
-      </p>
-    </section>
-  </main>
+   <section>
+  <h2>Booking Inquiry</h2>
+  <p>
+    Fill out the form below to request a session. I will review your information and follow up
+    to confirm availability, location details, and deposit information.
+  </p>
 
-  <footer>
-    <hr />
-    <p>&copy; 2026 zacharysepulvado.photo</p>
-  </footer>
-</body>
-</html>
+  <form class="booking-form">
+    <label for="name">Full Name</label>
+    <input type="text" id="name" name="name" required />
+
+    <label for="email">Email Address</label>
+    <input type="email" id="email" name="email" required />
+
+    <label for="phone">Phone Number</label>
+    <input type="tel" id="phone" name="phone" />
+
+    <label for="session-type">Session Type</label>
+    <select id="session-type" name="session-type" required>
+      <option value="">Select a session type</option>
+      <option value="creative-portraits">Creative Portraits</option>
+      <option value="couples-engagement">Couples / Engagement</option>
+      <option value="graduation">Graduation Sessions</option>
+      <option value="headshots">Headshots</option>
+      <option value="event-photography">Event Photography</option>
+    </select>
+
+    <label for="preferred-date">Preferred Date</label>
+    <input type="date" id="preferred-date" name="preferred-date" />
+
+    <label for="alternate-date">Alternate Date</label>
+    <input type="date" id="alternate-date" name="alternate-date" />
+
+    <label for="location">Preferred Location</label>
+    <input type="text" id="location" name="location" placeholder="Example: NSU campus, downtown, park, etc." />
+
+    <label for="budget">Budget / Package Interest</label>
+    <select id="budget" name="budget">
+      <option value="">Select an option</option>
+      <option value="creative-275">Creative Portraits — Starting at $275</option>
+      <option value="couples-350">Couples / Engagement — Starting at $350</option>
+      <option value="graduation-225">Graduation Sessions — Starting at $225</option>
+      <option value="headshots-200">Headshots — Starting at $200</option>
+      <option value="events-250-hour">Event Photography — $250/hour, 2-hour minimum</option>
+    </select>
+
+    <label for="deposit">Deposit Preference</label>
+    <select id="deposit" name="deposit">
+      <option value="">Select an option</option>
+      <option value="50-percent">Pay 50% deposit</option>
+      <option value="75-percent">Pay 75% upfront</option>
+      <option value="paid-in-full">Pay in full</option>
+    </select>
+
+    <label for="message">Session Details</label>
+    <textarea id="message" name="message" rows="6" placeholder="Tell me about the vibe, location ideas, outfit plans, number of people, or anything important for the session."></textarea>
+
+    <button type="submit">Submit Booking Inquiry</button>
+  </form>
+</section>

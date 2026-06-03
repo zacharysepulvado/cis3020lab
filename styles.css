@@ -149,3 +149,33 @@ ul {
 .faq-item h3 {
   margin-top: 0;
 }
+
+.booking-form {
+  display: grid;
+  gap: 10px;
+  max-width: 700px;
+  margin-top: 16px;
+}
+
+.booking-form label {
+  font-weight: 600;
+}
+
+.booking-form input,
+.booking-form select,
+.booking-form textarea,
+.booking-form button {
+  font: inherit;
+  padding: 10px;
+  border: 1px solid currentColor;
+  border-radius: 6px;
+}
+
+.booking-form textarea {
+  resize: vertical;
+}
+
+.booking-form button {
+  cursor: pointer;
+  font-weight: 600;
+}
