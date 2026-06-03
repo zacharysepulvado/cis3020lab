@@ -152,7 +152,7 @@ ul {
 
 .booking-form {
   display: grid;
-  gap: 10px;
+  gap: 12px;
   max-width: 700px;
   margin-top: 16px;
 }
@@ -163,19 +163,28 @@ ul {
 
 .booking-form input,
 .booking-form select,
-.booking-form textarea,
-.booking-form button {
-  font: inherit;
+.booking-form textarea {
+  width: 100%;
   padding: 10px;
-  border: 1px solid currentColor;
+  font: inherit;
+  border: 1px solid #999;
   border-radius: 6px;
 }
 
 .booking-form textarea {
   resize: vertical;
+  min-height: 220px;
 }
 
 .booking-form button {
-  cursor: pointer;
+  padding: 12px;
+  font: inherit;
   font-weight: 600;
+  border: 1px solid currentColor;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.booking-form button:hover {
+  opacity: 0.9;
 }
