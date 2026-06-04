@@ -256,16 +256,33 @@ ul {
 }
 
 @media (max-width: 700px) {
+  .carousel-section {
+    margin-top: 40px;
+  }
+
   .carousel {
     grid-template-columns: 1fr;
-    max-width: 340px;
+    max-width: 100%;
+    margin: 16px auto;
   }
 
   .carousel-frame img {
-    max-height: 420px;
+    width: 100%;
+    max-height: none;
+    height: 75vh;
+    object-fit: contain;
+  }
+
+  .carousel-frame figcaption {
+    font-size: 1.2rem;
+    margin-top: 12px;
   }
 
   .carousel-btn {
     margin: 0 auto;
+  }
+
+  .carousel-dots {
+    margin-top: 14px;
   }
 }

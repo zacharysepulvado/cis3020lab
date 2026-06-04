@@ -214,4 +214,28 @@ if (carouselImage && carouselCaption && dotsContainer && prevButton && nextButto
 
   nextButton.addEventListener("click", showNextImage);
   prevButton.addEventListener("click", showPreviousImage);
+
+  let touchStartX = 0;
+  let touchEndX = 0;
+
+  carouselImage.addEventListener("touchstart", (event) => {
+    touchStartX = event.changedTouches[0].screenX;
+  });
+
+  carouselImage.addEventListener("touchend", (event) => {
+    touchEndX = event.changedTouches[0].screenX;
+    handleSwipe();
+  });
+
+  function handleSwipe() {
+    const swipeDistance = touchEndX - touchStartX;
+
+    if (swipeDistance > 50) {
+      showPreviousImage();
+    }
+
+    if (swipeDistance < -50) {
+      showNextImage();
+    }
+  }
 }
