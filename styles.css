@@ -196,7 +196,7 @@ ul {
 
 .carousel {
   display: grid;
-  grid-template-columns: auto minmax(260px, 520px) auto;
+  grid-template-columns: auto minmax(280px, 620px) auto;
   align-items: center;
   justify-content: center;
   gap: 12px;
@@ -208,17 +208,37 @@ ul {
   text-align: center;
 }
 
-.carousel-frame img {
+.carousel-photo-wrap {
+  position: relative;
   width: 100%;
-  height: 520px;
+}
+
+.carousel-photo-wrap img {
+  width: 100%;
+  max-height: 620px;
   object-fit: contain;
   border-radius: 14px;
   display: block;
 }
 
 .carousel-frame figcaption {
-  margin-top: 8px;
-  font-weight: 600;
+  margin-top: 10px;
+  font-weight: 700;
+  font-size: 1.3rem;
+}
+
+.carousel-overlay {
+  position: absolute;
+  bottom: 18px;
+  left: 18px;
+  color: white;
+  font-weight: 800;
+  font-size: 1.05rem;
+  text-align: left;
+  text-shadow:
+    0 0 8px rgba(0, 0, 0, 0.9),
+    0 0 14px rgba(0, 0, 0, 0.9);
+  z-index: 10;
 }
 
 .carousel-btn {
@@ -236,49 +256,44 @@ ul {
 
 .carousel-dots {
   position: absolute;
-  bottom: 20px;
-  right: 20px;
-
+  bottom: 22px;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
   gap: 8px;
-
   z-index: 10;
 }
 
 .carousel-dot {
   width: 9px;
   height: 9px;
-  border: 1px solid currentColor;
+  border: 1px solid white;
   border-radius: 50%;
   background: transparent;
   cursor: pointer;
   padding: 0;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.8);
 }
 
 .carousel-dot.active {
-  background: currentColor;
+  background: white;
 }
 
 @media (max-width: 700px) {
-  .carousel-section {
-    margin-top: 40px;
-  }
-
   .carousel {
     grid-template-columns: 1fr;
     max-width: 100%;
-    margin: 16px auto;
   }
 
-  .carousel-frame img {
+  .carousel-photo-wrap img {
     width: 100%;
+    height: 80vh;
     max-height: none;
-    height: 75vh;
     object-fit: contain;
   }
 
   .carousel-frame figcaption {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     margin-top: 12px;
   }
 
@@ -286,27 +301,13 @@ ul {
     margin: 0 auto;
   }
 
-  .carousel-dots {
-    margin-top: 14px;
+  .carousel-overlay {
+    bottom: 24px;
+    left: 16px;
+    font-size: 1.1rem;
   }
-}
 
-.carousel-frame {
-  position: relative;
-  margin: 0;
-  text-align: center;
-}
-
-.carousel-overlay {
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
-  color: white;
-  font-weight: 700;
-  font-size: 1rem;
-  text-align: left;
-  text-shadow:
-    0 0 8px rgba(0, 0, 0, 0.8),
-    0 0 12px rgba(0, 0, 0, 0.8);
-  z-index: 10;
+  .carousel-dots {
+    bottom: 26px;
+  }
 }
