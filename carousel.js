@@ -25,9 +25,7 @@ const portfolioImages = [
   "images/couple-engagement-09.jpg",
   "images/couple-engagement-10.jpg",
 
-  "images/headshot.jpg",
-  "images/event.jpg",
-
+  "images/graduation.jpg",
   "images/graduation-02.jpg",
   "images/graduation-03.jpg",
   "images/graduation-04.jpg",
@@ -61,7 +59,7 @@ const portfolioImages = [
   "images/graduation-32.jpg",
   "images/graduation-33.jpg",
 
-    "images/headshot.jpg",
+  "images/headshot.jpg",
   "images/headshot-1.jpg",
   "images/headshot-2.jpg",
   "images/headshot-3.jpg",
@@ -118,49 +116,21 @@ let currentIndex = 0;
 let shuffledImages = [...portfolioImages];
 
 function getCaption(imagePath) {
-  if (imagePath.includes("creative-portrait")) {
-    return "Creative Portraits";
-  }
-
-  if (imagePath.includes("couple-engagement")) {
-    return "Couples / Engagement";
-  }
-
-  if (imagePath.includes("graduation")) {
-    return "Graduation Sessions";
-  }
-
-  if (imagePath.includes("headshot")) {
-    return "Headshots";
-  }
-
-  if (imagePath.includes("event")) {
-    return "Event Photography";
-  }
+  if (imagePath.includes("creative-portrait")) return "Creative Portraits";
+  if (imagePath.includes("couple-engagement")) return "Couples / Engagement";
+  if (imagePath.includes("graduation")) return "Graduation Sessions";
+  if (imagePath.includes("headshot")) return "Headshots";
+  if (imagePath.includes("event")) return "Event Photography";
 
   return "Featured Work";
 }
 
 function getHashtag(imagePath) {
-  if (imagePath.includes("creative-portrait")) {
-    return "#CreativePortraits";
-  }
-
-  if (imagePath.includes("couple-engagement")) {
-    return "#CouplesPhotography";
-  }
-
-  if (imagePath.includes("graduation")) {
-    return "#GraduationSessions";
-  }
-
-  if (imagePath.includes("headshot")) {
-    return "#Headshots";
-  }
-
-  if (imagePath.includes("event")) {
-    return "#EventPhotography";
-  }
+  if (imagePath.includes("creative-portrait")) return "#CreativePortraits";
+  if (imagePath.includes("couple-engagement")) return "#CouplesPhotography";
+  if (imagePath.includes("graduation")) return "#GraduationSessions";
+  if (imagePath.includes("headshot")) return "#Headshots";
+  if (imagePath.includes("event")) return "#EventPhotography";
 
   return "#FeaturedWork";
 }
@@ -168,7 +138,10 @@ function getHashtag(imagePath) {
 function shuffleImages() {
   for (let i = shuffledImages.length - 1; i > 0; i--) {
     const randomIndex = Math.floor(Math.random() * (i + 1));
-    [shuffledImages[i], shuffledImages[randomIndex]] = [shuffledImages[randomIndex], shuffledImages[i]];
+    [shuffledImages[i], shuffledImages[randomIndex]] = [
+      shuffledImages[randomIndex],
+      shuffledImages[i]
+    ];
   }
 }
 
