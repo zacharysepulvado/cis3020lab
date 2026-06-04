@@ -109,6 +109,7 @@ const portfolioImages = [
 
 const carouselImage = document.getElementById("carousel-image");
 const carouselCaption = document.getElementById("carousel-caption");
+const carouselOverlay = document.getElementById("carousel-overlay");
 const dotsContainer = document.getElementById("carousel-dots");
 const prevButton = document.querySelector(".carousel-prev");
 const nextButton = document.querySelector(".carousel-next");
@@ -140,6 +141,30 @@ function getCaption(imagePath) {
   return "Featured Work";
 }
 
+function getHashtag(imagePath) {
+  if (imagePath.includes("creative-portrait")) {
+    return "#CreativePortraits";
+  }
+
+  if (imagePath.includes("couple-engagement")) {
+    return "#CouplesPhotography";
+  }
+
+  if (imagePath.includes("graduation")) {
+    return "#GraduationSessions";
+  }
+
+  if (imagePath.includes("headshot")) {
+    return "#Headshots";
+  }
+
+  if (imagePath.includes("event")) {
+    return "#EventPhotography";
+  }
+
+  return "#FeaturedWork";
+}
+
 function shuffleImages() {
   for (let i = shuffledImages.length - 1; i > 0; i--) {
     const randomIndex = Math.floor(Math.random() * (i + 1));
@@ -153,6 +178,7 @@ function updateCarousel() {
   carouselImage.src = currentImage;
   carouselImage.alt = getCaption(currentImage);
   carouselCaption.textContent = getCaption(currentImage);
+  carouselOverlay.textContent = getHashtag(currentImage);
 
   updateDots();
 }
@@ -208,7 +234,7 @@ function showPreviousImage() {
   updateCarousel();
 }
 
-if (carouselImage && carouselCaption && dotsContainer && prevButton && nextButton) {
+if (carouselImage && carouselCaption && carouselOverlay && dotsContainer && prevButton && nextButton) {
   shuffleImages();
   updateCarousel();
 

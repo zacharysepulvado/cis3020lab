@@ -235,10 +235,14 @@ ul {
 }
 
 .carousel-dots {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+
   display: flex;
-  justify-content: center;
   gap: 8px;
-  margin-top: 10px;
+
+  z-index: 10;
 }
 
 .carousel-dot {
@@ -285,4 +289,24 @@ ul {
   .carousel-dots {
     margin-top: 14px;
   }
+}
+
+.carousel-frame {
+  position: relative;
+  margin: 0;
+  text-align: center;
+}
+
+.carousel-overlay {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  color: white;
+  font-weight: 700;
+  font-size: 1rem;
+  text-align: left;
+  text-shadow:
+    0 0 8px rgba(0, 0, 0, 0.8),
+    0 0 12px rgba(0, 0, 0, 0.8);
+  z-index: 10;
 }
