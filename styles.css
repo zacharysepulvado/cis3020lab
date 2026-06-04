@@ -148,11 +148,13 @@ ul {
 
 .carousel-dots {
   position: absolute;
-  bottom: 10px;
+  bottom: 8px;      /* move dots lower */
   left: 50%;
   transform: translateX(-50%);
+
   display: flex;
   gap: 8px;
+
   z-index: 10;
 }
 
