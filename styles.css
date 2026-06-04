@@ -17,11 +17,16 @@ footer {
   padding: 16px;
 }
 
+header {
+  text-align: center;
+}
+
 nav ul {
   list-style: none;
   padding-left: 0;
   margin: 8px 0 0 0;
   display: flex;
+  justify-content: center;
   gap: 12px;
   flex-wrap: wrap;
 }
@@ -57,6 +62,33 @@ ol,
 ul {
   padding-left: 20px;
 }
+
+/* Home showcase */
+.showcase-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.showcase-grid figure {
+  margin: 0;
+}
+
+.showcase-grid img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+}
+
+.showcase-grid figcaption {
+  margin-top: 6px;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
 /* Featured carousel */
 .carousel-section {
   margin-top: 40px;
@@ -64,7 +96,7 @@ ul {
 
 .carousel {
   display: grid;
-  grid-template-columns: auto minmax(280px, 720px) auto;
+  grid-template-columns: auto minmax(280px, 520px) auto;
   align-items: center;
   justify-content: center;
   gap: 12px;
@@ -79,6 +111,8 @@ ul {
 .carousel-photo-wrap {
   position: relative;
   width: 100%;
+  overflow: hidden;
+  border-radius: 14px;
 }
 
 .carousel-photo-wrap::after {
@@ -88,23 +122,22 @@ ul {
   right: 0;
   bottom: 0;
   height: 28%;
-  border-radius: 0 0 14px 14px;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.55), transparent);
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
   pointer-events: none;
+  z-index: 5;
 }
 
 .carousel-photo-wrap img {
   width: 100%;
-  max-height: 720px;
-  object-fit: contain;
-  border-radius: 14px;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
   display: block;
 }
 
 .carousel-overlay {
   position: absolute;
   bottom: 18px;
-  left: 18px;
+  left: 20px;
   color: white;
   font-weight: 800;
   font-size: 1.1rem;
@@ -115,7 +148,7 @@ ul {
 
 .carousel-dots {
   position: absolute;
-  bottom: 24px;
+  bottom: 22px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -157,17 +190,152 @@ ul {
   line-height: 1;
 }
 
+/* Portfolio */
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.portfolio-grid img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+}
+
+/* Booking cards */
+.booking-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-top: 16px;
+}
+
+.booking-card {
+  border: 1px solid currentColor;
+  border-radius: 10px;
+  padding: 16px;
+}
+
+.booking-card h3 {
+  margin-top: 0;
+}
+
+/* FAQ */
+.faq-list {
+  display: grid;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.faq-item {
+  border: 1px solid currentColor;
+  border-radius: 10px;
+  padding: 16px;
+}
+
+.faq-item h3 {
+  margin-top: 0;
+}
+
+/* Booking form */
+.booking-form {
+  display: grid;
+  gap: 12px;
+  max-width: 700px;
+  margin-top: 16px;
+}
+
+.booking-form label {
+  font-weight: 600;
+}
+
+.booking-form input,
+.booking-form select,
+.booking-form textarea {
+  width: 100%;
+  padding: 10px;
+  font: inherit;
+  border: 1px solid #999;
+  border-radius: 6px;
+}
+
+.booking-form textarea {
+  resize: vertical;
+  min-height: 220px;
+}
+
+.booking-form button {
+  padding: 12px;
+  font: inherit;
+  font-weight: 600;
+  border: 1px solid currentColor;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.booking-form button:hover {
+  opacity: 0.9;
+}
+
+/* Tablet and phone */
+@media (max-width: 900px) {
+  header,
+  main,
+  footer {
+    max-width: 720px;
+  }
+
+  .showcase-grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  .showcase-grid figure {
+    grid-column: span 2;
+  }
+
+  .showcase-grid figure:nth-child(4) {
+    grid-column: 2 / span 2;
+  }
+
+  .showcase-grid figure:nth-child(5) {
+    grid-column: 4 / span 2;
+  }
+
+  .portfolio-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .booking-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Small phones */
 @media (max-width: 700px) {
+  body {
+    font-size: 1rem;
+  }
+
+  .showcase-grid {
+    gap: 14px;
+  }
+
   .carousel {
     grid-template-columns: 1fr;
-    max-width: 100%;
+    max-width: 430px;
   }
 
   .carousel-photo-wrap img {
-    width: 100%;
-    height: 84vh;
-    max-height: none;
-    object-fit: contain;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+  }
+
+  .carousel-btn {
+    margin: 0 auto;
   }
 
   .carousel-frame figcaption {
@@ -175,17 +343,13 @@ ul {
     margin-top: 12px;
   }
 
-  .carousel-btn {
-    margin: 0 auto;
-  }
-
   .carousel-overlay {
-    bottom: 28px;
-    left: 18px;
-    font-size: 1.2rem;
+    bottom: 18px;
+    left: 20px;
+    font-size: 1.15rem;
   }
 
   .carousel-dots {
-    bottom: 32px;
+    bottom: 22px;
   }
 }
