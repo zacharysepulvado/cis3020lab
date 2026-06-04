@@ -130,7 +130,8 @@ ul {
 .carousel-photo-wrap img {
   width: 100%;
   aspect-ratio: 3 / 4;
-  object-fit: cover;
+  object-fit: contain;
+  background: black;
   display: block;
 }
 
@@ -331,10 +332,11 @@ ul {
     max-width: 430px;
   }
 
-  .carousel-photo-wrap img {
-    aspect-ratio: 3 / 4;
-    object-fit: cover;
-  }
+ .carousel-photo-wrap img {
+  aspect-ratio: 3 / 4;
+  object-fit: contain;
+  background: black;
+}
 
   .carousel-btn {
     margin: 0 auto;
