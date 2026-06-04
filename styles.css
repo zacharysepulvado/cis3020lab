@@ -136,7 +136,7 @@ ul {
 
 .carousel-overlay {
   position: absolute;
-  bottom: 18px;
+  bottom: 40px;
   left: 20px;
   color: white;
   font-weight: 800;
@@ -148,7 +148,7 @@ ul {
 
 .carousel-dots {
   position: absolute;
-  bottom: 22px;
+  bottom: 10px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -343,13 +343,12 @@ ul {
     margin-top: 12px;
   }
 
-  .carousel-overlay {
-    bottom: 18px;
-    left: 20px;
-    font-size: 1.15rem;
-  }
+.carousel-overlay {
+  bottom: 40px;
+  left: 20px;
+  font-size: 1.15rem;
+}
 
-  .carousel-dots {
-    bottom: 22px;
-  }
+.carousel-dots {
+  bottom: 10px;
 }
