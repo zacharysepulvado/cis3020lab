@@ -389,11 +389,27 @@ ul {
   cursor: pointer;
   z-index: 10000;
 }
-/* Center single leftover image in Event Photography grid on desktop only */
+/* Force Event Photography to stay 2-column on mobile */
+@media (max-width: 900px) {
+  .event-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 16px;
+  }
+
+  .event-grid img {
+    width: 100%;
+    height: auto;
+    grid-column: auto !important;
+  }
+}
+
+/* Center leftover event photo on desktop only */
 @media (min-width: 901px) {
   .event-grid img:last-child:nth-child(4n + 1) {
     grid-column: 2 / span 2;
   }
+}
 }
 
 /* Clickable photo hover effect */
