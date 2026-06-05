@@ -77,8 +77,8 @@ ul {
 
 .showcase-grid img {
   width: 100%;
-  aspect-ratio: 3 / 4;
-  object-fit: cover;
+  height: auto;
+  object-fit: contain;
   border-radius: 10px;
   display: block;
 }
@@ -138,7 +138,7 @@ ul {
 
 .carousel-overlay {
   position: absolute;
-  bottom: 14px;
+  bottom: 40px;
   left: 20px;
   color: white;
   font-weight: 800;
@@ -343,11 +343,14 @@ ul {
   }
 
 .carousel-overlay {
-  bottom: 40px;
+  bottom: 24px;
   left: 20px;
   font-size: 1.15rem;
 }
 
 .carousel-dots {
   bottom: 10px;
+
+  }
+
 }
