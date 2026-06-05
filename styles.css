@@ -409,3 +409,7 @@ ul {
   transform: scale(1.02);
   opacity: 0.95;
 }
+
+.carousel-frame figcaption {
+  display: none;
+}
