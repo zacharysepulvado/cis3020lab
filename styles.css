@@ -389,10 +389,11 @@ ul {
   cursor: pointer;
   z-index: 10000;
 }
-
-/* Center single leftover image in Event Photography grid */
-.event-grid img:last-child:nth-child(4n + 1) {
-  grid-column: 2 / span 2;
+/* Center single leftover image in Event Photography grid on desktop only */
+@media (min-width: 901px) {
+  .event-grid img:last-child:nth-child(4n + 1) {
+    grid-column: 2 / span 2;
+  }
 }
 
 /* Clickable photo hover effect */
