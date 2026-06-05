@@ -217,9 +217,7 @@ if (carouselImage && carouselCaption && carouselOverlay && dotsContainer && prev
   let touchStartX = 0;
   let touchEndX = 0;
 
-carouselImage.addEventListener("click", () => {
-  openLightbox(carouselImage.src);
-});
+}
 
   carouselImage.addEventListener("touchstart", (event) => {
     touchStartX = event.changedTouches[0].screenX;
@@ -241,39 +239,3 @@ carouselImage.addEventListener("click", () => {
       showNextImage();
     }
   }
-}
-
-const lightbox = document.getElementById("lightbox");
-const lightboxImage = document.getElementById("lightbox-image");
-const lightboxClose = document.getElementById("lightbox-close");
-
-function openLightbox(imageSrc) {
-  lightboxImage.src = imageSrc;
-  lightbox.classList.add("active");
-}
-
-function closeLightbox() {
-  lightbox.classList.remove("active");
-}
-
-if (lightbox && lightboxClose) {
-  lightboxClose.addEventListener("click", closeLightbox);
-
-  lightbox.addEventListener("click", (event) => {
-    if (event.target === lightbox) {
-      closeLightbox();
-    }
-  });
-}
-
-document.querySelectorAll(".portfolio-grid img").forEach((image) => {
-  image.addEventListener("click", () => {
-    openLightbox(image.src);
-  });
-});
-
-document.querySelectorAll(".showcase-grid img").forEach((image) => {
-  image.addEventListener("click", () => {
-    openLightbox(image.src);
-  });
-});
