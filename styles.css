@@ -389,3 +389,23 @@ ul {
   cursor: pointer;
   z-index: 10000;
 }
+
+/* Center single leftover image in Event Photography grid */
+.event-grid img:last-child:nth-child(4n + 1) {
+  grid-column: 2 / span 2;
+}
+
+/* Clickable photo hover effect */
+.portfolio-grid img,
+.showcase-grid img,
+.carousel-photo-wrap img {
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.portfolio-grid img:hover,
+.showcase-grid img:hover,
+.carousel-photo-wrap img:hover {
+  transform: scale(1.02);
+  opacity: 0.95;
+}
