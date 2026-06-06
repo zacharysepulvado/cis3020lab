@@ -138,60 +138,83 @@
     and follow up to confirm availability, location details, and deposit information.
   </p>
 
-  <form class="booking-form">
+  <form class="booking-form" action="https://formspree.io/f/xreveape" method="POST">
+  <input type="hidden" name="_subject" value="New Photography Booking Inquiry" />
 
-    <label for="name">Full Name</label>
-    <input type="text" id="name" name="name" required />
+  <input
+    type="hidden"
+    name="_next"
+    value="https://zacharysepulvado.github.io/cis3020lab/thank-you.html"
+  />
 
-    <label for="email">Email Address</label>
-    <input type="email" id="email" name="email" required />
+  <input
+    type="text"
+    name="_gotcha"
+    style="display:none"
+  />
 
-    <label for="phone">Phone Number</label>
-    <input type="tel" id="phone" name="phone" />
+  <label for="name">Full Name</label>
+  <input type="text" id="name" name="name" required />
 
-   <label for="session-type">Session Type</label>
-<select id="session-type" name="session-type" required>
-  <option value="">Select a session type</option>
-  <option value="creative-portraits">Creative Portraits</option>
-  <option value="couples-engagement">Couples / Engagement</option>
-  <option value="graduation">Graduation Sessions</option>
-  <option value="headshots">Headshots</option>
-  <option value="event-photography">Event Photography</option>
-</select>
+  <label for="email">Email Address</label>
+  <input type="email" id="email" name="email" required />
 
-    <label for="preferred-date">Preferred Date</label>
-    <input type="date" id="preferred-date" name="preferred-date" />
+  <label for="phone">Phone Number</label>
+  <input type="tel" id="phone" name="phone" required />
 
-    <label for="alternate-date">Alternate Date</label>
-    <input type="date" id="alternate-date" name="alternate-date" />
+  <label for="instagram">Instagram Username</label>
+<input
+  type="text"
+  id="instagram"
+  name="instagram"
+  placeholder="@zacharysepulvado"
+/>
 
-    <label for="location">Preferred Location</label>
-    <input
-      type="text"
-      id="location"
-      name="location"
-      placeholder="Example: NSU campus, downtown, park, etc."
-    />
+  <label for="session-type">Session Type</label>
+  <select id="session-type" name="session-type" required>
+    <option value="">Select a session type</option>
+    <option value="Creative Portraits">Creative Portraits</option>
+    <option value="Couples / Engagement">Couples / Engagement</option>
+    <option value="Graduation Sessions">Graduation Sessions</option>
+    <option value="Headshots">Headshots</option>
+    <option value="Event Photography">Event Photography</option>
+  </select>
 
-    <label for="deposit">Deposit Preference</label>
-    <select id="deposit" name="deposit">
-      <option value="">Select an option</option>
-      <option value="50-percent">Pay 50% deposit</option>
-      <option value="75-percent">Pay 75% deposit</option>
-      <option value="paid-in-full">Pay in full</option>
-    </select>
+  <label for="preferred-date">Preferred Date</label>
+  <input type="date" id="preferred-date" name="preferred-date" required />
 
-    <label for="message">Session Details</label>
-    <textarea
-      id="message"
-      name="message"
-      rows="12"
-      placeholder="Tell me about the vibe, location ideas, outfit plans, number of people, inspiration photos, or anything important for the session."
-    ></textarea>
+  <label for="alternate-date">Alternate Date</label>
+  <input type="date" id="alternate-date" name="alternate-date" />
 
-    <button type="submit">Submit Booking Inquiry</button>
+  <label for="location">Preferred Location</label>
+<input
+  type="text"
+  id="location"
+  name="location"
+  required
+  placeholder="Example: NSU campus, downtown, park, etc."
+/>
 
-  </form>
+  <label for="deposit">Deposit Preference</label>
+  <select id="deposit" name="deposit">
+    <option value="">Select an option</option>
+    <option value="Pay 50% deposit">Pay 50% deposit</option>
+    <option value="Pay 75% deposit">Pay 75% deposit</option>
+    <option value="Pay in full">Pay in full</option>
+  </select>
+
+  <label for="message">Session Details</label>
+  <textarea
+    id="message"
+    name="message"
+    rows="12"
+    required
+    placeholder="Tell me about the vibe, location ideas, outfit plans, number of people, inspiration photos, or anything important for the session."
+  ></textarea>
+
+  <button type="submit">Send Booking Inquiry</button>
+</form>
+
 </section>
 
 <section>
@@ -272,5 +295,8 @@
     <hr />
     <p>&copy; 2026 zacharysepulvado.photo</p>
   </footer>
+
+  <script src="lightbox.js"></script>
+
 </body>
 </html>
