@@ -444,3 +444,31 @@ ul {
 .form-status.error {
   color: crimson;
 }
+
+/* Reviews page */
+.review-grid {
+  display: grid;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.review-card {
+  border: 1px solid currentColor;
+  border-radius: 10px;
+  padding: 16px;
+}
+
+.review-card p {
+  margin: 8px 0;
+}
+
+.review-rating {
+  font-weight: 700;
+}
+
+.checkbox-label {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  font-weight: 600;
+}

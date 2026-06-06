@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>zacharysepulvado.photo | Leave a Review</title>
+  <title>zacharysepulvado.photo | Reviews</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -17,7 +17,7 @@
       <li><a href="index.html">Home</a></li>
       <li><a href="portfolio.html">Portfolio</a></li>
       <li><a href="booking.html">Book</a></li>
-      <li><a href="review.html">Leave a Review</a></li>
+      <li><a href="review.html">Reviews</a></li>
     </ul>
   </nav>
 
@@ -27,97 +27,89 @@
 <main>
 
 <section>
-  <h2>Leave a Review</h2>
+  <h2>Share Your Experience</h2>
 
   <p>
-    Thank you for choosing me as your photographer. If you enjoyed your
-    experience, I would greatly appreciate a review.
+    Thank you for choosing me as your photographer. If you enjoyed your experience,
+    I would greatly appreciate a review.
   </p>
 
-  <p>
-    Reviews help future clients feel confident booking a session and help
-    my photography business continue to grow.
-  </p>
+  <form
+    id="review-form"
+    class="booking-form"
+    action="https://formspree.io/f/xgobolnq"
+    method="POST"
+  >
+    <input type="hidden" name="_subject" value="New Photography Review" />
 
-<form
-  id="review-form"
-  class="booking-form"
-  action="https://formspree.io/f/xgobolnq"
-  method="POST"
->
+    <label for="name">Your Name</label>
+    <input type="text" id="name" name="name" required />
 
-<input
-  type="hidden"
-  name="_subject"
-  value="New Photography Review"
-/>
+    <label for="session-type">Session Type</label>
+    <select id="session-type" name="session-type" required>
+      <option value="">Select session type</option>
+      <option value="Creative Portraits">Creative Portraits</option>
+      <option value="Couples / Engagement">Couples / Engagement</option>
+      <option value="Graduation Sessions">Graduation Sessions</option>
+      <option value="Headshots">Headshots</option>
+      <option value="Event Photography">Event Photography</option>
+    </select>
 
-<label for="name">Your Name</label>
-<input
-  type="text"
-  id="name"
-  name="name"
-  required
-/>
+    <label for="rating">Rating</label>
+    <select id="rating" name="rating" required>
+      <option value="">Select rating</option>
+      <option value="5 Stars">⭐⭐⭐⭐⭐ (5 Stars)</option>
+      <option value="4 Stars">⭐⭐⭐⭐ (4 Stars)</option>
+      <option value="3 Stars">⭐⭐⭐ (3 Stars)</option>
+      <option value="2 Stars">⭐⭐ (2 Stars)</option>
+      <option value="1 Star">⭐ (1 Star)</option>
+    </select>
 
-<label for="session-type">Session Type</label>
-<select
-  id="session-type"
-  name="session-type"
-  required
->
-  <option value="">Select session type</option>
-  <option value="Creative Portraits">Creative Portraits</option>
-  <option value="Couples / Engagement">Couples / Engagement</option>
-  <option value="Graduation Sessions">Graduation Sessions</option>
-  <option value="Headshots">Headshots</option>
-  <option value="Event Photography">Event Photography</option>
-</select>
+    <label for="review">Review</label>
+    <textarea
+      id="review"
+      name="review"
+      rows="10"
+      required
+      placeholder="Tell me about your experience working with Zachary..."
+    ></textarea>
 
-<label for="rating">Rating</label>
-<select
-  id="rating"
-  name="rating"
-  required
->
-  <option value="">Select rating</option>
-  <option value="5 Stars">⭐⭐⭐⭐⭐ (5 Stars)</option>
-  <option value="4 Stars">⭐⭐⭐⭐ (4 Stars)</option>
-  <option value="3 Stars">⭐⭐⭐ (3 Stars)</option>
-  <option value="2 Stars">⭐⭐ (2 Stars)</option>
-  <option value="1 Star">⭐ (1 Star)</option>
-</select>
+    <label class="checkbox-label">
+      <input type="checkbox" name="permission" required />
+      I give permission for this review to be displayed on zacharysepulvado.photo and on social media.
+    </label>
 
-<label for="review">
-Review
-</label>
+    <button type="submit">Submit Review</button>
+  </form>
 
-<textarea
-  id="review"
-  name="review"
-  rows="10"
-  required
-  placeholder="Tell me about your experience working with Zachary..."
-></textarea>
+  <p id="form-status" class="form-status"></p>
+</section>
 
-<label>
-  <input
-    type="checkbox"
-    name="permission"
-    required
-  />
-  I give permission for this review to be displayed on
-  zacharysepulvado.photo and on social media.
-</label>
+<section>
+  <h2>What Clients Are Saying</h2>
 
-<button type="submit">
-  Submit Review
-</button>
+  <div class="review-grid">
 
-</form>
+    <article class="review-card">
+      <p class="review-rating">Reviews coming soon.</p>
+      <p>
+        Client reviews submitted through this page will appear here after they are reviewed and approved.
+      </p>
+    </article>
 
-<p id="form-status" class="form-status"></p>
+    <!-- Copy this review card later when you receive real reviews:
 
+    <article class="review-card">
+      <p class="review-rating">⭐⭐⭐⭐⭐</p>
+      <p>
+        "Paste the client's real review here."
+      </p>
+      <p><strong>— Client Name, Session Type</strong></p>
+    </article>
+
+    -->
+
+  </div>
 </section>
 
 </main>
@@ -127,13 +119,9 @@ Review
   <p>&copy; 2026 zacharysepulvado.photo</p>
 
   <p>
-    <a href="https://instagram.com/zacharysepulvado" target="_blank">
-      Instagram
-    </a>
+    <a href="https://instagram.com/zacharysepulvado" target="_blank">Instagram</a>
     |
-    <a href="mailto:zacharysepulvado@outlook.com">
-      Email
-    </a>
+    <a href="mailto:zacharysepulvado@outlook.com">Email</a>
   </p>
 </footer>
 
@@ -141,4 +129,3 @@ Review
 
 </body>
 </html>
-```
