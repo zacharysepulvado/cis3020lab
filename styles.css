@@ -430,3 +430,17 @@ ul {
 .carousel-frame figcaption {
   display: none;
 }
+
+/* Booking form status message */
+.form-status {
+  margin-top: 16px;
+  font-weight: 700;
+}
+
+.form-status.success {
+  color: green;
+}
+
+.form-status.error {
+  color: crimson;
+}

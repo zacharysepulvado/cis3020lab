@@ -138,14 +138,8 @@
     and follow up to confirm availability, location details, and deposit information.
   </p>
 
-  <form class="booking-form" action="https://formspree.io/f/xreveape" method="POST">
+  <form id="booking-form" class="booking-form" action="https://formspree.io/f/xreveape" method="POST">
   <input type="hidden" name="_subject" value="New Photography Booking Inquiry" />
-
-  <input
-    type="hidden"
-    name="_next"
-    value="https://zacharysepulvado.github.io/cis3020lab/thank-you.html"
-  />
 
   <input
     type="text"
@@ -214,6 +208,8 @@
 
   <button type="submit">Send Booking Inquiry</button>
 </form>
+
+<p id="form-status" class="form-status"></p>
 
 </section>
 
@@ -297,6 +293,7 @@
   </footer>
 
   <script src="lightbox.js"></script>
+  <script src="booking-form.js"></script>
 
 </body>
 </html>
