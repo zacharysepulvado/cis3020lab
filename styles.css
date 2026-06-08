@@ -468,7 +468,22 @@ ul {
 
 .checkbox-label {
   display: flex;
-  gap: 8px;
   align-items: flex-start;
+  gap: 10px;
   font-weight: 600;
+  line-height: 1.4;
+}
+
+.checkbox-label input {
+  width: auto;
+  margin-top: 4px;
+  flex-shrink: 0;
+}
+
+@media (max-width: 700px) {
+  .checkbox-label {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 10px;
+  }
 }
