@@ -487,3 +487,18 @@ ul {
     gap: 10px;
   }
 }
+
+.book-session-button {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 16px;
+  border: 1px solid currentColor;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: transform 0.2s ease;
+}
+
+.book-session-button:hover {
+  transform: translateY(-2px);
+}
