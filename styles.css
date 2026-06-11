@@ -575,3 +575,50 @@ ul {
 .checkbox-label input {
   margin-top: 5px;
 }
+
+.availability-card {
+border: 1px solid #ccc;
+border-radius: 12px;
+padding: 20px;
+margin: 20px 0 30px;
+}
+
+.availability-card h3 {
+margin-top: 0;
+text-align: center;
+}
+
+.availability-calendar {
+display: grid;
+grid-template-columns: repeat(7, 1fr);
+gap: 8px;
+text-align: center;
+margin-top: 15px;
+}
+
+.availability-calendar div {
+padding: 8px;
+border-radius: 6px;
+}
+
+.availability-calendar .booked {
+font-weight: bold;
+color: #b22222;
+}
+
+.availability-legend {
+margin-top: 15px;
+text-align: center;
+font-size: 0.95rem;
+}
+
+@media (max-width: 600px) {
+.availability-calendar {
+gap: 4px;
+font-size: 0.85rem;
+}
+
+.availability-calendar div {
+padding: 6px;
+}
+}
