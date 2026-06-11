@@ -576,49 +576,94 @@ ul {
   margin-top: 5px;
 }
 
+.availability-grid {
+  display: grid;
+  gap: 20px;
+  margin: 20px 0 30px;
+}
+
 .availability-card {
-border: 1px solid #ccc;
-border-radius: 12px;
-padding: 20px;
-margin: 20px 0 30px;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  padding: 20px;
 }
 
 .availability-card h3 {
-margin-top: 0;
-text-align: center;
+  margin-top: 0;
+  text-align: center;
 }
 
 .availability-calendar {
-display: grid;
-grid-template-columns: repeat(7, 1fr);
-gap: 8px;
-text-align: center;
-margin-top: 15px;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+  text-align: center;
 }
 
 .availability-calendar div {
-padding: 8px;
-border-radius: 6px;
+  min-height: 38px;
+  padding: 8px;
+  border-radius: 6px;
+  position: relative;
 }
 
-.availability-calendar .booked {
-font-weight: bold;
-color: #b22222;
+.availability-calendar .day-name {
+  font-weight: 700;
+}
+
+.availability-calendar .unavailable {
+  background: #eeeeee;
+  color: #777;
+}
+
+.availability-calendar .booked::after {
+  content: "";
+  width: 7px;
+  height: 7px;
+  background: #000;
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  bottom: 5px;
+  transform: translateX(-50%);
 }
 
 .availability-legend {
-margin-top: 15px;
-text-align: center;
-font-size: 0.95rem;
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin: 10px 0 30px;
+  font-size: 0.95rem;
+}
+
+.legend-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background: #000;
+  border-radius: 50%;
+  margin-right: 6px;
+}
+
+.legend-box {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  background: #eeeeee;
+  border: 1px solid #ccc;
+  margin-right: 6px;
+  vertical-align: middle;
 }
 
 @media (max-width: 600px) {
-.availability-calendar {
-gap: 4px;
-font-size: 0.85rem;
-}
+  .availability-calendar {
+    gap: 4px;
+    font-size: 0.85rem;
+  }
 
-.availability-calendar div {
-padding: 6px;
-}
+  .availability-calendar div {
+    min-height: 32px;
+    padding: 6px;
+  }
 }
