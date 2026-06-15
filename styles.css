@@ -667,3 +667,11 @@ ul {
     padding: 6px;
   }
 }
+
+.gallery-section {
+  margin-top: 40px;
+}
+
+.gallery-section h3 {
+  margin-bottom: 16px;
+}
