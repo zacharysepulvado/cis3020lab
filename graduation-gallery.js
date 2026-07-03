@@ -52,25 +52,23 @@ if (graduationGallery) {
 
     for (let i = 1; i <= session.total; i++) {
 
-  let fileNumber = i;
+      let fileNumber = i;
 
-  // Zoe's gallery uses 001, 002, 003...
-  if (session.prefix === "Zoi") {
-    fileNumber = String(i).padStart(3, "0");
-  }
+      // Zoe's filenames are Zoi-001.jpg, Zoi-002.jpg, etc.
+      if (session.prefix === "Zoi") {
+        fileNumber = String(i).padStart(3, "0");
+      }
 
-  const image = document.createElement("img");
+      const image = document.createElement("img");
 
-  image.src = `images/${session.folder}/${session.prefix}-${fileNumber}.jpg`;
-  image.alt = `${session.title} photo ${i}`;
+      image.src = `images/${session.folder}/${session.prefix}-${fileNumber}.jpg`;
+      image.alt = `${session.title} photo ${i}`;
 
-  image.addEventListener("error", () => {
-    image.remove();
-  });
+      image.addEventListener("error", () => {
+        image.remove();
+      });
 
-  grid.appendChild(image);
-}
-
+      grid.appendChild(image);
     }
 
     section.appendChild(heading);
