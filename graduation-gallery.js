@@ -1,10 +1,21 @@
 const graduationSessions = [
-  
   {
     title: "Salo Graduation Session",
     folder: "Salo",
     prefix: "Salo",
     total: 33
+  },
+  {
+    title: "Sophie Graduation Session",
+    folder: "Sofi",
+    prefix: "Sofi",
+    total: 117
+  },
+  {
+    title: "Zoe Graduation Session",
+    folder: "Zoi",
+    prefix: "Zoi",
+    total: 128
   },
   {
     title: "Camila Graduation Session",
@@ -18,7 +29,6 @@ const graduationSessions = [
     prefix: "Mariana",
     total: 165
   },
-
   {
     title: "Valeria Graduation Session",
     folder: "Valeria",
@@ -41,15 +51,25 @@ if (graduationGallery) {
     grid.classList.add("gallery-grid");
 
     for (let i = 1; i <= session.total; i++) {
-      const image = document.createElement("img");
-image.src = `images/${session.folder}/${session.prefix}-${i}.jpg`;
-image.alt = `${session.title} photo ${i}`;
 
-image.addEventListener("error", () => {
-  image.remove();
-});
+  let fileNumber = i;
 
-grid.appendChild(image);
+  // Zoe's gallery uses 001, 002, 003...
+  if (session.prefix === "Zoi") {
+    fileNumber = String(i).padStart(3, "0");
+  }
+
+  const image = document.createElement("img");
+
+  image.src = `images/${session.folder}/${session.prefix}-${fileNumber}.jpg`;
+  image.alt = `${session.title} photo ${i}`;
+
+  image.addEventListener("error", () => {
+    image.remove();
+  });
+
+  grid.appendChild(image);
+}
 
     }
 
