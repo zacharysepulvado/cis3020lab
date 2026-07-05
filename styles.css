@@ -873,3 +873,35 @@ section h2 a:hover,
 section h3 a:hover {
     color: var(--accent-dark);
 }
+
+/* Final link cleanup */
+
+a,
+a:visited,
+a:hover,
+a:active {
+  text-decoration: none !important;
+  color: var(--accent) !important;
+}
+
+a:hover {
+  color: var(--accent-dark) !important;
+}
+
+/* Keep nav buttons white */
+nav a,
+nav a:visited,
+nav a:hover,
+nav a:active {
+  color: white !important;
+  text-decoration: none !important;
+}
+
+/* Portfolio heading links */
+section h2 a,
+section h2 a:visited,
+section h2 a:hover,
+section h2 a:active {
+  color: var(--accent) !important;
+  text-decoration: none !important;
+}
