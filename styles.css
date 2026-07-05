@@ -838,3 +838,38 @@ footer {
   border-radius: 18px 18px 0 0;
   margin-top: 40px;
 }
+
+/* ---------- Links ---------- */
+
+a {
+    color: var(--accent);
+    text-decoration: none;
+    transition: color 0.25s ease;
+}
+
+a:visited {
+    color: var(--accent);
+}
+
+a:hover {
+    color: var(--accent-dark);
+}
+
+a:active {
+    color: var(--accent-dark);
+}
+
+.portfolio-section h2 a,
+.gallery-section h2 a,
+section h2 a,
+section h3 a {
+    text-decoration: none;
+    color: var(--accent);
+}
+
+.portfolio-section h2 a:hover,
+.gallery-section h2 a:hover,
+section h2 a:hover,
+section h3 a:hover {
+    color: var(--accent-dark);
+}
