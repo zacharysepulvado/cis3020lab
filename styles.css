@@ -889,3 +889,21 @@ h2 a:hover,
 h2 a:focus {
   color: var(--accent-dark) !important;
 }
+/* Force remove portfolio heading link underlines */
+
+.clean-heading-link,
+.clean-heading-link:link,
+.clean-heading-link:visited,
+.clean-heading-link:hover,
+.clean-heading-link:active,
+.clean-heading-link:focus {
+  color: var(--accent) !important;
+  text-decoration: none !important;
+  text-decoration-line: none !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
+}
+
+.clean-heading-link:hover {
+  color: var(--accent-dark) !important;
+}
