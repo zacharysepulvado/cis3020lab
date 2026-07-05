@@ -839,69 +839,53 @@ footer {
   margin-top: 40px;
 }
 
-/* ---------- Links ---------- */
-
-a {
-    color: var(--accent);
-    text-decoration: none;
-    transition: color 0.25s ease;
-}
-
-a:visited {
-    color: var(--accent);
-}
-
-a:hover {
-    color: var(--accent-dark);
-}
-
-a:active {
-    color: var(--accent-dark);
-}
-
-.portfolio-section h2 a,
-.gallery-section h2 a,
-section h2 a,
-section h3 a {
-    text-decoration: none;
-    color: var(--accent);
-}
-
-.portfolio-section h2 a:hover,
-.gallery-section h2 a:hover,
-section h2 a:hover,
-section h3 a:hover {
-    color: var(--accent-dark);
-}
-
-/* Final link cleanup */
+/* =========================
+   Final Link Reset
+   ========================= */
 
 a,
+a:link,
 a:visited,
 a:hover,
-a:active {
-  text-decoration: none !important;
+a:active,
+a:focus {
   color: var(--accent) !important;
+  text-decoration: none !important;
+  text-decoration-line: none !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
 }
 
-a:hover {
+a:hover,
+a:focus {
   color: var(--accent-dark) !important;
 }
 
-/* Keep nav buttons white */
+/* Navigation buttons */
 nav a,
+nav a:link,
 nav a:visited,
 nav a:hover,
-nav a:active {
+nav a:active,
+nav a:focus {
   color: white !important;
   text-decoration: none !important;
+  text-decoration-line: none !important;
 }
 
-/* Portfolio heading links */
-section h2 a,
-section h2 a:visited,
-section h2 a:hover,
-section h2 a:active {
+/* Portfolio/category heading links */
+h2 a,
+h2 a:link,
+h2 a:visited,
+h2 a:hover,
+h2 a:active,
+h2 a:focus {
   color: var(--accent) !important;
   text-decoration: none !important;
+  text-decoration-line: none !important;
+}
+
+h2 a:hover,
+h2 a:focus {
+  color: var(--accent-dark) !important;
 }
