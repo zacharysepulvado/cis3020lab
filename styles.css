@@ -675,3 +675,166 @@ ul {
 .gallery-section h3 {
   margin-bottom: 16px;
 }
+
+/* =========================
+   Brand Color Pass
+   ========================= */
+
+:root {
+  --bg: #faf8f5;
+  --surface: #ffffff;
+  --surface-soft: #f4f1ec;
+  --text: #222222;
+  --heading: #1c1c1c;
+  --accent: #6f8f73;
+  --accent-dark: #5d7962;
+  --bronze: #a57a5a;
+  --border: #e6dfd8;
+  --shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+}
+
+h1,
+h2,
+h3 {
+  color: var(--heading);
+}
+
+a {
+  color: var(--accent-dark);
+}
+
+a:hover {
+  color: var(--bronze);
+}
+
+/* Header */
+
+header p {
+  color: var(--accent-dark);
+  font-weight: 500;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(--border);
+}
+
+/* Navigation */
+
+nav a {
+  color: white;
+  background: var(--accent);
+  border: 1px solid var(--accent);
+  border-radius: 8px;
+  padding: 7px 12px;
+  text-decoration: none;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+nav a:hover {
+  background: var(--accent-dark);
+  color: white;
+  text-decoration: none;
+  transform: translateY(-2px);
+}
+
+/* Showcase */
+
+.showcase-grid figure {
+  background: var(--surface);
+  border-radius: 16px;
+  padding: 8px;
+  box-shadow: var(--shadow);
+}
+
+.showcase-grid img {
+  border-radius: 14px;
+}
+
+.showcase-grid figcaption {
+  color: var(--heading);
+  font-weight: 600;
+}
+
+/* Carousel / Client Spotlight */
+
+.carousel-section {
+  background: var(--surface-soft);
+  border-radius: 18px;
+  padding: 24px;
+}
+
+.carousel-photo-wrap {
+  box-shadow: var(--shadow);
+}
+
+/* Buttons */
+
+.carousel-btn,
+.book-session-button,
+.booking-form button {
+  background: var(--accent);
+  color: white;
+  border: 1px solid var(--accent);
+}
+
+.carousel-btn:hover,
+.book-session-button:hover,
+.booking-form button:hover {
+  background: var(--accent-dark);
+  color: white;
+}
+
+/* Cards */
+
+.booking-card,
+.faq-item,
+.review-card,
+.availability-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+/* Reviews box */
+
+.review-card {
+  border-left: 5px solid var(--accent);
+}
+
+/* Forms */
+
+.booking-form input,
+.booking-form select,
+.booking-form textarea {
+  background: white;
+  border: 1px solid var(--border);
+}
+
+.booking-form input:focus,
+.booking-form select:focus,
+.booking-form textarea:focus {
+  outline: 2px solid var(--accent);
+  border-color: var(--accent);
+}
+
+/* Gallery Images */
+
+.portfolio-grid img,
+.gallery-grid img,
+.showcase-grid img {
+  box-shadow: var(--shadow);
+}
+
+/* Footer */
+
+footer {
+  background: var(--surface-soft);
+  border-radius: 18px 18px 0 0;
+  margin-top: 40px;
+}
