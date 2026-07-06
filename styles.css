@@ -96,7 +96,7 @@ ul {
 
 .carousel {
   display: grid;
-  grid-template-columns: auto minmax(280px, 520px) auto;
+  grid-template-columns: auto minmax(280px, 560px) auto;
   align-items: center;
   justify-content: center;
   gap: 12px;
@@ -764,30 +764,23 @@ nav a:hover {
 /* Carousel / Client Spotlight */
 
 .carousel-section {
-  background: var(--surface-soft);
+  background: var(--surface);
+  border: 1px solid rgba(125, 154, 129, 0.35);
   border-radius: 18px;
-  padding: 24px;
-}
-
-.carousel-photo-wrap {
+  padding: 28px 32px 36px;
   box-shadow: var(--shadow);
 }
 
-/* Buttons */
-
-.carousel-btn,
-.book-session-button,
-.booking-form button {
-  background: var(--accent);
-  color: white;
-  border: 1px solid var(--accent);
+.carousel-section h3 {
+  margin-top: 0;
 }
 
-.carousel-btn:hover,
-.book-session-button:hover,
-.booking-form button:hover {
-  background: var(--accent-dark);
-  color: white;
+.carousel-photo-wrap {
+  max-width: 560px;
+  margin: 0 auto;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
 }
 
 /* Cards */
