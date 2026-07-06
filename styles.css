@@ -681,9 +681,9 @@ ul {
    ========================= */
 
 :root {
-  --bg: #f5efe8;
-  --surface: #fbf8f4;
-  --surface-soft: #f1ebe4;
+  --bg: #f8f5f1;
+  --surface: #fbfaf7;
+  --surface-soft: #f3eee8;
   --text: #222222;
   --heading: #1c1c1c;
   --accent: #7D9A81;
