@@ -96,13 +96,12 @@ ul {
 
 .carousel {
   display: grid;
-  grid-template-columns: auto minmax(280px, 560px) auto;
+  grid-template-columns: auto minmax(280px, 580px) auto;
   align-items: center;
   justify-content: center;
   gap: 12px;
-  margin: 16px auto;
+  margin: 22px auto 0;
 }
-
 .carousel-frame {
   margin: 0;
   text-align: center;
@@ -111,8 +110,13 @@ ul {
 .carousel-photo-wrap {
   position: relative;
   width: 100%;
+  max-width: 580px;
+  height: 680px;
+  margin: 0 auto;
   overflow: hidden;
-  border-radius: 14px;
+  border-radius: 16px;
+  background: #000;
+  box-shadow: var(--shadow);
 }
 
 .carousel-photo-wrap::after {
@@ -129,10 +133,8 @@ ul {
 
 .carousel-photo-wrap img {
   width: 100%;
-  height: auto;
-  max-height: 82vh;
-  object-fit: contain;
-  background: black;
+  height: 100%;
+  object-fit: cover;
   display: block;
 }
 
