@@ -86,7 +86,7 @@ ul {
 .showcase-grid figure {
   margin: 0;
   background: var(--surface);
-  border-radius: 16px;
+  border-radius: 0;
   padding: 8px;
   box-shadow: var(--shadow);
 }
@@ -119,8 +119,9 @@ ul {
 }
 
 .carousel {
+  --carousel-stage-height: 520px;
   display: grid;
-  grid-template-columns: auto minmax(280px, 720px) auto;
+  grid-template-columns: 42px minmax(0, 720px) 42px;
   align-items: center;
   justify-content: center;
   gap: 18px;
@@ -128,8 +129,9 @@ ul {
 }
 
 .carousel-frame {
-  width: 720px;
-  height: 520px;
+  width: 100%;
+  min-width: 0;
+  height: var(--carousel-stage-height);
   margin: 0;
   text-align: center;
   display: flex;
@@ -140,12 +142,12 @@ ul {
 .carousel-photo-wrap {
   position: relative;
   display: inline-block;
-  width: auto;
+  width: max-content;
   height: auto;
   max-width: 100%;
   max-height: 100%;
   overflow: visible;
-  border-radius: 16px;
+  border-radius: 0;
   background: transparent;
   box-shadow: none;
 }
@@ -153,8 +155,8 @@ ul {
 .carousel-photo-wrap img {
   width: auto;
   height: auto;
-  max-width: 720px;
-  max-height: 520px;
+  max-width: 100%;
+  max-height: var(--carousel-stage-height);
   object-fit: contain;
   display: block;
   border-radius: 0;
@@ -702,29 +704,13 @@ footer {
   }
 
   .carousel {
+    /* Reserve the existing portrait height limit, independent of the slide.
+       Stable viewport units prevent mobile browser chrome resizing the stage. */
+    --carousel-stage-height: 68vh;
+    --carousel-stage-height: 68svh;
     grid-template-columns: 1fr;
     max-width: 100%;
     gap: 18px;
-  }
-
-  .carousel-frame {
-    width: 100%;
-    height: auto;
-    min-height: 0;
-  }
-
-  .carousel-photo-wrap {
-    width: 100%;
-    max-width: 100%;
-    max-height: none;
-  }
-
-  .carousel-photo-wrap img {
-    max-width: 100%;
-    max-height: 68vh;
-    width: auto;
-    height: auto;
-    object-fit: contain;
   }
 
   .carousel-btn {
