@@ -114,137 +114,151 @@ const portfolioImages = [
   "images/event-38.jpg"
 ];
 
-const carouselImage = document.getElementById("carousel-image");
-const carouselCaption = document.getElementById("carousel-caption");
-const carouselOverlay = document.getElementById("carousel-overlay");
-const dotsContainer = document.getElementById("carousel-dots");
-const prevButton = document.querySelector(".carousel-prev");
-const nextButton = document.querySelector(".carousel-next");
+(() => {
+  const carouselImage = document.getElementById("carousel-image");
+  const carouselCaption = document.getElementById("carousel-caption");
+  const carouselOverlay = document.getElementById("carousel-overlay");
+  const dotsContainer = document.getElementById("carousel-dots");
+  const prevButton = document.querySelector(".carousel-prev");
+  const nextButton = document.querySelector(".carousel-next");
 
-let currentIndex = 0;
-let shuffledImages = [...portfolioImages];
+  if (!carouselImage || !carouselCaption || !carouselOverlay ||
+      !dotsContainer || !prevButton || !nextButton || !portfolioImages.length) return;
 
-function getCaption(imagePath) {
-  if (imagePath.includes("creative-portrait")) return "Creative Portraits";
-  if (imagePath.includes("couple-engagement")) return "Couples / Engagement";
-  if (imagePath.includes("graduation")) return "Graduation Sessions";
-  if (imagePath.includes("headshot")) return "Headshots";
-  if (imagePath.includes("event")) return "Event Photography";
+  let currentIndex = 0;
+  let displayedIndex = null;
+  let loadRequest = 0;
+  let touchStartX = null;
+  const shuffledImages = [...portfolioImages];
+  const preloadedImages = new Set();
 
-  return "Featured Work";
-}
-
-function getHashtag(imagePath) {
-  if (imagePath.includes("creative-portrait")) return "#CreativePortraits";
-  if (imagePath.includes("couple-engagement")) return "#CouplesPhotography";
-  if (imagePath.includes("graduation")) return "#GraduationSessions";
-  if (imagePath.includes("headshot")) return "#Headshots";
-  if (imagePath.includes("event")) return "#EventPhotography";
-
-  return "#FeaturedWork";
-}
-
-function shuffleImages() {
-  for (let i = shuffledImages.length - 1; i > 0; i--) {
-    const randomIndex = Math.floor(Math.random() * (i + 1));
-    [shuffledImages[i], shuffledImages[randomIndex]] = [
-      shuffledImages[randomIndex],
-      shuffledImages[i]
-    ];
-  }
-}
-
-function updateCarousel() {
-  const currentImage = shuffledImages[currentIndex];
-
-  carouselImage.src = currentImage;
-  carouselImage.alt = getCaption(currentImage);
-  carouselCaption.textContent = getCaption(currentImage);
-  carouselOverlay.textContent = getHashtag(currentImage);
-
-  updateDots();
-}
-
-function updateDots() {
-  dotsContainer.innerHTML = "";
-
-  const totalDots = 7;
-  const centerDot = 3;
-
-  let startIndex = currentIndex - centerDot;
-
-  if (startIndex < 0) {
-    startIndex = 0;
+  function getCaption(imagePath) {
+    if (imagePath.includes("creative-portrait")) return "Creative Portraits";
+    if (imagePath.includes("couple-engagement")) return "Couples / Engagement";
+    if (imagePath.includes("graduation")) return "Graduation Sessions";
+    if (imagePath.includes("headshot")) return "Headshots";
+    if (imagePath.includes("event")) return "Event Photography";
+    return "Featured Work";
   }
 
-  if (startIndex > shuffledImages.length - totalDots) {
-    startIndex = shuffledImages.length - totalDots;
+  function getHashtag(imagePath) {
+    if (imagePath.includes("creative-portrait")) return "#CreativePortraits";
+    if (imagePath.includes("couple-engagement")) return "#CouplesPhotography";
+    if (imagePath.includes("graduation")) return "#GraduationSessions";
+    if (imagePath.includes("headshot")) return "#Headshots";
+    if (imagePath.includes("event")) return "#EventPhotography";
+    return "#FeaturedWork";
   }
 
-  if (startIndex < 0) {
-    startIndex = 0;
-  }
-
-  const endIndex = Math.min(startIndex + totalDots, shuffledImages.length);
-
-  for (let i = startIndex; i < endIndex; i++) {
-    const dot = document.createElement("button");
-    dot.classList.add("carousel-dot");
-    dot.type = "button";
-    dot.setAttribute("aria-label", `Go to photo ${i + 1}`);
-
-    if (i === currentIndex) {
-      dot.classList.add("active");
+  function shuffleImages() {
+    for (let i = shuffledImages.length - 1; i > 0; i--) {
+      const randomIndex = Math.floor(Math.random() * (i + 1));
+      [shuffledImages[i], shuffledImages[randomIndex]] = [
+        shuffledImages[randomIndex], shuffledImages[i]
+      ];
     }
+  }
 
+  function preloadAdjacentImages() {
+    for (const offset of [-1, 1]) {
+      const index = (currentIndex + offset + shuffledImages.length) % shuffledImages.length;
+      const src = shuffledImages[index];
+      if (preloadedImages.has(src)) continue;
+      preloadedImages.add(src);
+      const image = new Image();
+      image.onerror = () => preloadedImages.delete(src);
+      image.src = src;
+    }
+  }
+
+  // Keep seven stable controls, including keyboard focus as the window moves.
+  const dots = Array.from({ length: Math.min(7, shuffledImages.length) }, () => {
+    const dot = document.createElement("button");
+    dot.className = "carousel-dot";
+    dot.type = "button";
+    dot.setAttribute("aria-controls", "carousel-image");
     dot.addEventListener("click", () => {
-      currentIndex = i;
+      currentIndex = Number(dot.dataset.index);
       updateCarousel();
     });
-
     dotsContainer.appendChild(dot);
+    return dot;
+  });
+
+  function updateDots() {
+    const hadDotFocus = dots.includes(document.activeElement);
+    const startIndex = Math.max(0, Math.min(currentIndex - 3, shuffledImages.length - dots.length));
+    dots.forEach((dot, offset) => {
+      const index = startIndex + offset;
+      const active = index === currentIndex;
+      dot.dataset.index = String(index);
+      dot.classList.toggle("active", active);
+      dot.setAttribute("aria-label", `Go to photo ${index + 1} of ${shuffledImages.length}`);
+      dot.setAttribute("aria-current", String(active));
+      if (active && hadDotFocus) dot.focus({ preventScroll: true });
+    });
   }
-}
 
-function showNextImage() {
-  currentIndex = (currentIndex + 1) % shuffledImages.length;
-  updateCarousel();
-}
+  function updateCarousel() {
+    const requestedIndex = currentIndex;
+    const request = ++loadRequest;
+    const currentImage = shuffledImages[requestedIndex];
+    const pendingImage = new Image();
+    carouselImage.setAttribute("aria-busy", "true");
 
-function showPreviousImage() {
-  currentIndex = (currentIndex - 1 + shuffledImages.length) % shuffledImages.length;
-  updateCarousel();
-}
+    pendingImage.onload = () => {
+      if (request !== loadRequest) return;
+      // Swap only once loaded; older requests cannot overwrite newer navigation.
+      carouselImage.src = currentImage;
+      carouselImage.alt = getCaption(currentImage);
+      carouselCaption.textContent = getCaption(currentImage);
+      carouselOverlay.textContent = getHashtag(currentImage);
+      carouselImage.setAttribute("aria-busy", "false");
+      displayedIndex = requestedIndex;
+      updateDots();
+      preloadAdjacentImages();
+    };
+    pendingImage.onerror = () => {
+      if (request !== loadRequest) return;
+      // Retain the last visible photograph and keep navigation available.
+      currentIndex = displayedIndex ?? 0;
+      carouselImage.setAttribute("aria-busy", "false");
+      updateDots();
+      console.warn("Unable to load carousel photo:", currentImage);
+    };
+    pendingImage.src = currentImage;
+  }
 
-if (carouselImage && carouselCaption && carouselOverlay && dotsContainer && prevButton && nextButton) {
-  shuffleImages();
-  updateCarousel();
+  function showNextImage() {
+    currentIndex = (currentIndex + 1) % shuffledImages.length;
+    updateCarousel();
+  }
+
+  function showPreviousImage() {
+    currentIndex = (currentIndex - 1 + shuffledImages.length) % shuffledImages.length;
+    updateCarousel();
+  }
 
   nextButton.addEventListener("click", showNextImage);
   prevButton.addEventListener("click", showPreviousImage);
 
-  let touchStartX = 0;
-  let touchEndX = 0;
-
-}
-
   carouselImage.addEventListener("touchstart", (event) => {
     touchStartX = event.changedTouches[0].screenX;
-  });
+  }, { passive: true });
 
   carouselImage.addEventListener("touchend", (event) => {
-    touchEndX = event.changedTouches[0].screenX;
-    handleSwipe();
+    if (touchStartX === null) return;
+    const swipeDistance = event.changedTouches[0].screenX - touchStartX;
+    touchStartX = null;
+    if (swipeDistance > 50) showPreviousImage();
+    if (swipeDistance < -50) showNextImage();
+  }, { passive: true });
+
+  carouselImage.addEventListener("touchcancel", () => {
+    touchStartX = null;
   });
 
-  function handleSwipe() {
-    const swipeDistance = touchEndX - touchStartX;
-
-    if (swipeDistance > 50) {
-      showPreviousImage();
-    }
-
-    if (swipeDistance < -50) {
-      showNextImage();
-    }
-  }
+  shuffleImages();
+  updateDots();
+  updateCarousel();
+})();
