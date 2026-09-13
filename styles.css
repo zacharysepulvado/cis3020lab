@@ -2,8 +2,15 @@
   box-sizing: border-box;
 }
 
+/* Typography concept 1: editorial display with a contemporary reading face. */
+:root {
+  --font-display: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --font-body: "Manrope", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+}
+
 body {
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-family: var(--font-body);
+  font-weight: 400;
   line-height: 1.6;
   margin: 0;
   padding: 0;
@@ -34,6 +41,7 @@ nav ul {
 }
 
 nav a {
+  font-weight: 600;
   color: white;
   background: var(--accent);
   border: 1px solid var(--accent);
@@ -59,11 +67,54 @@ hr {
 }
 
 h1 {
+  font-family: var(--font-display);
+  font-size: clamp(1.85rem, 1.4rem + 2vw, 2.75rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
   margin: 0 0 6px 0;
 }
 
-h2 {
+h2,
+.carousel-section h3 {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 1.6rem + 0.8vw, 2.25rem);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
   margin-top: 24px;
+  margin-bottom: 0.5em;
+}
+
+/* Functional subheadings remain distinct from the editorial section titles. */
+h3 {
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  font-weight: 600;
+  line-height: 1.45;
+}
+
+.booking-card h3 {
+  font-family: var(--font-display);
+  font-size: clamp(1.65rem, 1.5rem + 0.6vw, 1.875rem);
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: 0.5em;
+}
+
+header .site-tagline {
+  font-family: var(--font-display);
+  font-size: clamp(1.2rem, 1.1rem + 0.4vw, 1.4rem);
+  font-style: italic;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: var(--font-body);
 }
 
 p {
@@ -169,7 +220,7 @@ ul {
   bottom: 18px;
   left: 20px;
   color: white;
-  font-weight: 800;
+  font-weight: 700;
   font-size: 1.1rem;
   text-align: left;
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
